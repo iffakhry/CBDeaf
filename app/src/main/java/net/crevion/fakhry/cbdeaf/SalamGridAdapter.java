@@ -1,11 +1,13 @@
 package net.crevion.fakhry.cbdeaf;
 
 import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 /**
  * Created by mgmub on 05/12/17.
@@ -14,13 +16,17 @@ import android.widget.ImageView;
 public class SalamGridAdapter extends BaseAdapter {
 
     private Context mContext;
+    private final String[] gridViewString;
+    private final int[] gridViewImageId;
 
-    public SalamGridAdapter(Context context){
+    public SalamGridAdapter(Context context, String[] gridViewString, int[] gridViewImageId){
         mContext = context;
+        this.gridViewImageId = gridViewImageId;
+        this.gridViewString = gridViewString;
     }
     @Override
     public int getCount() {
-        return mButtonId.length;
+        return gridViewString.length;
     }
 
     @Override
@@ -35,30 +41,22 @@ public class SalamGridAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView  , ViewGroup parent) {
-        ImageView imageView;
+        View gridViewAndroid;
+        LayoutInflater inflater = (LayoutInflater) mContext
+                .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+
         if(convertView == null){
-            imageView = new ImageView(mContext);
-            imageView.setLayoutParams(new GridView.LayoutParams(85, 85));
-            imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            imageView.setPadding(8, 8, 8, 8);
+            gridViewAndroid = new View(mContext);
+            gridViewAndroid = inflater.inflate(R.layout.salam_gridview_layout, null);
+            TextView textViewAndroid = (TextView) gridViewAndroid.findViewById(R.id.gridview_text);
+            ImageView imageViewAndroid = (ImageView) gridViewAndroid.findViewById(R.id.gridview_image);
+            textViewAndroid.setText(gridViewString[position]);
+            imageViewAndroid.setImageResource(gridViewImageId[position]);
         }else{
-            imageView = (ImageView) convertView;
+            gridViewAndroid = (View) convertView;
         }
-        imageView.setImageResource(mButtonId[position]);
-        return imageView;
+        return gridViewAndroid;
     }
 
-    // references to our images
-    private Integer[] mButtonId = {
-            R.drawable.ic_icon_app, R.drawable.ic_icon_app,
-            R.drawable.ic_icon_app, R.drawable.ic_icon_app,
-            R.drawable.ic_icon_app, R.drawable.ic_icon_app,
-            R.drawable.ic_icon_app, R.drawable.ic_icon_app,
-            R.drawable.ic_icon_app, R.drawable.ic_icon_app,
-            R.drawable.ic_icon_app, R.drawable.ic_icon_app,
-            R.drawable.ic_icon_app, R.drawable.ic_icon_app,
-            R.drawable.ic_icon_app, R.drawable.ic_icon_app,
-            R.drawable.ic_icon_app, R.drawable.ic_icon_app
-    };
 
 }
