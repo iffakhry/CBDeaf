@@ -8,52 +8,38 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.GridView;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import java.util.Locale;
 
-public class PerkenalanActivity extends AppCompatActivity implements
-        TextToSpeech.OnInitListener {
+public class MenulisActivity extends AppCompatActivity implements
+        TextToSpeech.OnInitListener{
 
-    GridView perkenalanGridView;
+    private EditText edittext_input_kalimat;
+    private Button btUcap;
     private TextToSpeech tts;
-
-    String[] gridViewString = {
-            "Siapa nama anda?",
-            "Senang berkenalan dengan anda",
-            "Anda tinggal dimana?"
-    } ;
-
-    int[] gridViewImageId = {
-            R.drawable.speaker2,
-            R.drawable.speaker2,
-            R.drawable.speaker2
-    };
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_perkenalan);
+        setContentView(R.layout.activity_menulis);
 
-        tts = new TextToSpeech(this, this);
+        edittext_input_kalimat = (EditText)findViewById(R.id.edittext_input_kalimat);
+        btUcap = (Button) findViewById(R.id.btUcap);
 
-        PerkenalanGridAdapter perkenalanGridAdapter = new PerkenalanGridAdapter(PerkenalanActivity.this, gridViewString, gridViewImageId);
-        perkenalanGridView = (GridView) findViewById(R.id.perkenalan_gridview);
-        perkenalanGridView.setAdapter(perkenalanGridAdapter);
-
-        perkenalanGridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-             @TargetApi(Build.VERSION_CODES.LOLLIPOP)
-             @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
-             @Override
-             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                 speakOut(gridViewString[position]);
-                 Toast.makeText(PerkenalanActivity.this, "" + gridViewString[position], Toast.LENGTH_SHORT).show();
-             }
-         }
-        );
+        btUcap.setOnClickListener(new View.OnClickListener() {
+            @TargetApi(Build.VERSION_CODES.LOLLIPOP)
+            @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+            @Override
+            public void onClick(View view) {
+                String inputKalimat = edittext_input_kalimat.getText().toString();
+                speakOut(inputKalimat);
+                Toast.makeText(MenulisActivity.this, "" + inputKalimat, Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     @Override

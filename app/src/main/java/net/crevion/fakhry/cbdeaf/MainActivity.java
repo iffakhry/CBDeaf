@@ -32,5 +32,21 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(perkenalanIntent);
             }
         });
+
+        btTolong.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent tolongIntent = new Intent(view.getContext(), TolongActivity.class);
+                startActivity(tolongIntent);
+            }
+        });
+
+        btMenulis.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent menulisIntent = new Intent(view.getContext(), MenulisActivity.class);
+                startActivity(menulisIntent);
+            }
+        });
     }
 }

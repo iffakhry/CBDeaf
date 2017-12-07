@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/perkenalan_gridview_root"
+    android:id="@+id/tolong_gridview_root"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
     <GridView
-        android:id="@+id/perkenalan_gridview"
+        android:id="@+id/tolong_gridview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:columnWidth="130dp"

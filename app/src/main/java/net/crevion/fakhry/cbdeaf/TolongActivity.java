@@ -14,45 +14,46 @@ import android.widget.Toast;
 
 import java.util.Locale;
 
-public class PerkenalanActivity extends AppCompatActivity implements
-        TextToSpeech.OnInitListener {
+public class TolongActivity extends AppCompatActivity implements
+        TextToSpeech.OnInitListener{
 
-    GridView perkenalanGridView;
+    GridView tolongGridView;
     private TextToSpeech tts;
 
     String[] gridViewString = {
-            "Siapa nama anda?",
-            "Senang berkenalan dengan anda",
-            "Anda tinggal dimana?"
+            "Maaf, saya ingin bertanya",
+            "Maaf, apa saya boleh minta tolong?",
+            "Berapa harganya?",
+            "Maaf, bisa bicara lebih pelan?"
     } ;
 
     int[] gridViewImageId = {
             R.drawable.speaker2,
             R.drawable.speaker2,
+            R.drawable.speaker2,
             R.drawable.speaker2
     };
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_perkenalan);
+        setContentView(R.layout.activity_tolong);
 
         tts = new TextToSpeech(this, this);
 
-        PerkenalanGridAdapter perkenalanGridAdapter = new PerkenalanGridAdapter(PerkenalanActivity.this, gridViewString, gridViewImageId);
-        perkenalanGridView = (GridView) findViewById(R.id.perkenalan_gridview);
-        perkenalanGridView.setAdapter(perkenalanGridAdapter);
+        TolongGridAdapter tolongGridAdapter = new TolongGridAdapter(TolongActivity.this, gridViewString, gridViewImageId);
+        tolongGridView = (GridView) findViewById(R.id.tolong_gridview);
+        tolongGridView.setAdapter(tolongGridAdapter);
 
-        perkenalanGridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-             @TargetApi(Build.VERSION_CODES.LOLLIPOP)
-             @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
-             @Override
-             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                 speakOut(gridViewString[position]);
-                 Toast.makeText(PerkenalanActivity.this, "" + gridViewString[position], Toast.LENGTH_SHORT).show();
-             }
-         }
+        tolongGridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+              @TargetApi(Build.VERSION_CODES.LOLLIPOP)
+              @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+              @Override
+              public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                  speakOut(gridViewString[position]);
+                  Toast.makeText(TolongActivity.this, "" + gridViewString[position], Toast.LENGTH_SHORT).show();
+              }
+          }
         );
     }
 

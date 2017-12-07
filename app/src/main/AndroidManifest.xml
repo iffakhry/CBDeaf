@@ -17,7 +17,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".SalamActivity" />
-        <activity android:name=".PerkenalanActivity"></activity>
+        <activity android:name=".PerkenalanActivity" />
+        <activity android:name=".TolongActivity" />
+        <activity android:name=".MenulisActivity"></activity>
     </application>
 
 </manifest>
