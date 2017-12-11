@@ -29,7 +29,7 @@ public class MenulisActivity extends AppCompatActivity implements
 
         edittext_input_kalimat = (EditText)findViewById(R.id.edittext_input_kalimat);
         btUcap = (Button) findViewById(R.id.btUcap);
-
+        tts = new TextToSpeech(this, this);
         btUcap.setOnClickListener(new View.OnClickListener() {
             @TargetApi(Build.VERSION_CODES.LOLLIPOP)
             @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
