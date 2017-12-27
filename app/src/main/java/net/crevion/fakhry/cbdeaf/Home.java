@@ -15,10 +15,11 @@ import android.widget.TextView;
 public class Home extends AppCompatActivity {
     private TabLayout mTabLayout;
 
-    private int[] mTabsIcons = {
+    private final int[] mTabsIcons = {
             R.drawable.home,
             R.drawable.profile,
             R.drawable.bell,
+            R.drawable.adjust,
             R.drawable.adjust};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,9 +48,9 @@ public class Home extends AppCompatActivity {
 
     private class MyPagerAdapter extends FragmentPagerAdapter {
 
-        public final int PAGE_COUNT = 4;
+        public final int PAGE_COUNT = 5;
 
-        private final String[] mTabsTitle = {"Salam", "Perkenalan", "Tolong","Tulis"};
+        private final String[] mTabsTitle = {"Salam", "Perkenalan", "Tolong","Tulis", "SPOK"};
 
         public MyPagerAdapter(FragmentManager fm) {
             super(fm);
@@ -73,11 +74,13 @@ public class Home extends AppCompatActivity {
                     return SalamFragment.newInstance(1);
 
                 case 1:
-                    return SalamFragment.newInstance(2);
+                    return PerkenalanFragment.newInstance(2);
                 case 2:
-                    return SalamFragment.newInstance(3);
+                    return TolongFragment.newInstance(3);
                 case 3:
                     return SalamFragment.newInstance(4);
+                case 4:
+                    return SalamFragment.newInstance(5);
             }
             return null;
         }

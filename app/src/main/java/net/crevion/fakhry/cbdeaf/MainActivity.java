@@ -17,36 +17,36 @@ public class MainActivity extends AppCompatActivity {
         btTolong = (Button) findViewById(R.id.btTolong);
         btMenulis = (Button) findViewById(R.id.btMenulis);
 
-        btSalam.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent salamIntent = new Intent(view.getContext(), SalamActivity.class);
-                startActivity(salamIntent);
-            }
-        });
-
-        btPerkenalan.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent perkenalanIntent = new Intent(view.getContext(), PerkenalanActivity.class);
-                startActivity(perkenalanIntent);
-            }
-        });
-
-        btTolong.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent tolongIntent = new Intent(view.getContext(), TolongActivity.class);
-                startActivity(tolongIntent);
-            }
-        });
-
-        btMenulis.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent menulisIntent = new Intent(view.getContext(), MenulisActivity.class);
-                startActivity(menulisIntent);
-            }
-        });
+//        btSalam.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent salamIntent = new Intent(view.getContext(), SalamActivity.class);
+//                startActivity(salamIntent);
+//            }
+//        });
+//
+//        btPerkenalan.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent perkenalanIntent = new Intent(view.getContext(), PerkenalanActivity.class);
+//                startActivity(perkenalanIntent);
+//            }
+//        });
+//
+//        btTolong.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent tolongIntent = new Intent(view.getContext(), TolongActivity.class);
+//                startActivity(tolongIntent);
+//            }
+//        });
+//
+//        btMenulis.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent menulisIntent = new Intent(view.getContext(), MenulisActivity.class);
+//                startActivity(menulisIntent);
+//            }
+//        });
     }
 }
